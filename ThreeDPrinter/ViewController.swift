@@ -167,7 +167,6 @@ private func build(_ nodeTuple: NodeTuple) -> SCNNode {
         }
         firstMaterial.isDoubleSided = nodeTuple.3;
         
-        
         node.geometry = geometry;
     }
     
