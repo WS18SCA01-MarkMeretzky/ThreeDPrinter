@@ -140,12 +140,18 @@ private func build(_ nodeTuple: NodeTuple) -> SCNNode {
         if typeOfGeometry == SCNBox.self {
             let args: (Double, Double, Double, Double) = nodeTuple.7 as! (Double, Double, Double, Double);
             geometry = SCNBox(width: CGFloat(args.0), height: CGFloat(args.1), length: CGFloat(args.2), chamferRadius: CGFloat(args.3));
+        } else if typeOfGeometry == SCNPyramid.self {
+            let args: (Double, Double, Double) = nodeTuple.7 as! (Double, Double, Double);
+            geometry = SCNPyramid(width: CGFloat(args.0), height: CGFloat(args.1), length: CGFloat(args.2));
         } else if typeOfGeometry == SCNPlane.self {
             let args: (Double, Double) = nodeTuple.7 as! (Double, Double);
             geometry = SCNPlane(width: CGFloat(args.0), height: CGFloat(args.1));
         } else if typeOfGeometry == SCNCylinder.self {
             let args: (Double, Double) = nodeTuple.7 as! (Double, Double);
             geometry = SCNCylinder(radius: CGFloat(args.0), height: CGFloat(args.1));
+        } else if typeOfGeometry == SCNCone.self {
+            let args: (Double, Double, Double) = nodeTuple.7 as! (Double, Double, Double);
+            geometry = SCNCone(topRadius: CGFloat(args.0), bottomRadius: CGFloat(args.1), height: CGFloat(args.2));
         } else if typeOfGeometry == SCNSphere.self {
             let args: (Double) = nodeTuple.7 as! (Double);
             geometry = SCNSphere(radius: CGFloat(args));
